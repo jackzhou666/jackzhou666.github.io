@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jackzhou666.github.io</id>
+    <title>jackzhou的星球</title>
+    <updated>2020-06-22T14:21:40.361Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jackzhou666.github.io"/>
+    <link rel="self" href="https://jackzhou666.github.io/atom.xml"/>
+    <subtitle>好好学习，天天向上</subtitle>
+    <logo>https://jackzhou666.github.io/images/avatar.png</logo>
+    <icon>https://jackzhou666.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, jackzhou的星球</rights>
+</feed>
