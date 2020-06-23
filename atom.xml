@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jackzhou666.github.io</id>
     <title>jackzhou的星球</title>
-    <updated>2020-06-23T01:16:34.893Z</updated>
+    <updated>2020-06-23T14:29:42.455Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jackzhou666.github.io"/>
     <link rel="self" href="https://jackzhou666.github.io/atom.xml"/>
@@ -10,4 +10,92 @@
     <logo>https://jackzhou666.github.io/images/avatar.png</logo>
     <icon>https://jackzhou666.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, jackzhou的星球</rights>
+    <entry>
+        <title type="html"><![CDATA[Java网络编程初探]]></title>
+        <id>https://jackzhou666.github.io/post/java-wang-luo-bian-cheng/</id>
+        <link href="https://jackzhou666.github.io/post/java-wang-luo-bian-cheng/">
+        </link>
+        <updated>2020-06-23T13:50:32.000Z</updated>
+        <content type="html"><![CDATA[<p>今天下午把上传的功能学会了，现在来做一个下载的功能，因为我对Java还比较熟，所以用Java完成了这次的网络编程。<br>
+<br/><br>
+这个程序主要分成两个部分，客户端和服务端。<br>
+<br/><br>
+将服务端的这个文件：<br>
+<img src="https://jackzhou666.github.io/post-images/1592921759974.png" alt="" loading="lazy"></p>
+<p>下载到下面这个目录中：<br>
+<img src="https://jackzhou666.github.io/post-images/1592921796162.png" alt="" loading="lazy"></p>
+<br/>
+这次主要遇到了三个问题：
+1.客户端程序因为阻塞一直停滞(后附解决方法)
+2.有时候启动客户端时会有Connect refused的报错，用命令: 
+<pre><code class="language-bash"> lsof -i:端口号
+</code></pre>
+<p>查看也未发现端口占用(暂未找到问题原因)</p>
+<p>客户端的主要代码是这样的:</p>
+<pre><code class="language-java">public class TCP_Client {
+    public static void main(String[] args) throws Exception{
+
+        //127.0.0.1是本机ip,供我们使用的合法端口范围为1024-65535之间的一个数
+
+        Socket socket = new Socket(&quot;127.0.0.1&quot;,8888);
+        InputStream is = socket.getInputStream();
+
+        //生成一个test_+时间+随机数的一个名字防止重复
+
+        String filename = &quot;test_&quot;+System.currentTimeMillis()+&quot;_&quot;+new Random().nextInt(7777)+&quot;.ico&quot;;
+        FileOutputStream fos = new FileOutputStream(&quot;PicDownload/&quot;+filename);
+
+        //将获取到的文件以byte数组的形式存储
+        byte[] resource = new byte[1024];
+        int len = 0;
+        while((len=is.read(resource))!=-1){
+            fos.write(resource,0,len);
+        }
+
+        System.out.println(&quot;下载成功&quot;);
+
+        //关闭各种流
+        fos.close();
+        is.close();
+        socket.close();
+
+
+    }
+}
+</code></pre>
+<br/>
+服务端的主要代码是这样的:
+<pre><code class="language-java">public class TCP_Server {
+    public static void main(String[] args) throws Exception{
+        ServerSocket serverSocket = new ServerSocket(8888);
+
+        //获取到会话后才会脱离阻塞状态
+        Socket socket = serverSocket.accept();
+
+        FileInputStream fis = new FileInputStream(&quot;PicResource/favicon.ico&quot;);
+        OutputStream os = socket.getOutputStream();
+        byte[] resource = new byte[1024];
+        int len=0;
+        while((len=fis.read(resource))!=-1){
+            os.write(resource,0,len);
+        }
+
+        //shutdownOutput是为了防止接收端一直接收不到产生阻塞
+
+        socket.shutdownOutput();
+
+
+        os.close();
+        fis.close();
+        socket.close();
+        serverSocket.close();
+
+
+
+
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
 </feed>
