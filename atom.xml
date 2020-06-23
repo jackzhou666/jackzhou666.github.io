@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jackzhou666.github.io</id>
     <title>jackzhou的星球</title>
-    <updated>2020-06-23T14:29:42.455Z</updated>
+    <updated>2020-06-23T14:46:26.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jackzhou666.github.io"/>
     <link rel="self" href="https://jackzhou666.github.io/atom.xml"/>
@@ -80,7 +80,7 @@
             os.write(resource,0,len);
         }
 
-        //shutdownOutput是为了防止接收端一直接收不到产生阻塞
+        //调用shutdownOutput函数是为了防止接收端一直接收不到产生阻塞
 
         socket.shutdownOutput();
 
