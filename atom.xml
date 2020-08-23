@@ -2,22 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jackzhou666.github.io</id>
     <title>云烟</title>
-    <updated>2020-08-23T07:40:48.018Z</updated>
+    <updated>2020-08-23T07:41:41.414Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jackzhou666.github.io"/>
     <link rel="self" href="https://jackzhou666.github.io/atom.xml"/>
     <logo>https://jackzhou666.github.io/images/avatar.png</logo>
     <icon>https://jackzhou666.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 云烟</rights>
-    <entry>
-        <title type="html"><![CDATA[关于我]]></title>
-        <id>https://jackzhou666.github.io/post/guan-yu-wo/</id>
-        <link href="https://jackzhou666.github.io/post/guan-yu-wo/">
-        </link>
-        <updated>2020-08-23T07:21:22.000Z</updated>
-        <content type="html"><![CDATA[<p>一名准大三程序员，做过一点点项目，会了一点点东西，不知道接下来该做点什么……</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Java网络编程初探]]></title>
         <id>https://jackzhou666.github.io/post/java-wang-luo-bian-cheng/</id>
