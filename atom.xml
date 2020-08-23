@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jackzhou666.github.io</id>
     <title>云烟</title>
-    <updated>2020-08-23T07:41:41.414Z</updated>
+    <updated>2020-08-23T07:43:35.402Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jackzhou666.github.io"/>
     <link rel="self" href="https://jackzhou666.github.io/atom.xml"/>
@@ -30,7 +30,7 @@
 <pre><code class="language-bash"> lsof -i:端口号
 </code></pre>
 <p>查看也未发现端口占用(暂未找到问题原因)</p>
-<p>客户端的主要代码是这样的:</p>
+<p>客户端的主要代码如下:</p>
 <pre><code class="language-java">public class TCP_Client {
     public static void main(String[] args) throws Exception{
 
@@ -63,7 +63,7 @@
 }
 </code></pre>
 <br/>
-服务端的主要代码是这样的:
+服务端的主要代码如下:
 <pre><code class="language-java">public class TCP_Server {
     public static void main(String[] args) throws Exception{
         ServerSocket serverSocket = new ServerSocket(8888);
